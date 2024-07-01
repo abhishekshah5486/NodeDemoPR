@@ -64,11 +64,20 @@ const fs = require('fs');
 const http = require('http');
 const server = http.createServer( (req, res) => {
     res.setHeader('Content-type', 'text/html');
-    res.write(
-        '<html><head><title> Node Js title </title></head><body>'
-    );
-    res.write('<p>Hello World !</p>');
-    res.write('</body></html>');
+    if (req.url === '/login'){
+        res.write(
+            '<html><head><title> Node Js title </title></head><body>'
+        );
+        res.write('<p>Hello Login</p>');
+        res.write('</body></html>');
+    }
+    else{
+        res.write(
+            '<html><head><title> Node Js title </title></head><body>'
+        );
+        res.write('<p>Hello World</p>');
+        res.write('</body></html>');
+    }
     res.end();
 });
 const port = 3000;
