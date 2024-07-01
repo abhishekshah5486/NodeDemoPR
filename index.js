@@ -34,8 +34,7 @@
 // Get the path of a file
 
 // const p = "/Users/abhishekshah/DemoNodeProject/file.txt";
-const path = require('path');
-const fs = require('fs');
+
 // const dirName = path.dirname(p);
 // const ext = path.extname(p);
 // console.log(dirName);
@@ -61,27 +60,42 @@ const fs = require('fs');
 // fs.unlinkSync('file.txt');
 
 // Creating a server
+// const http = require('http');
+// const server = http.createServer( (req, res) => {
+//     res.setHeader('Content-type', 'text/html');
+//     if (req.url === '/login'){
+//         res.write(
+//             '<html><head><title> Node Js title </title></head><body>'
+//         );
+//         res.write('<p>Hello Login</p>');
+//         res.write('</body></html>');
+//     }
+//     else{
+//         res.write(
+//             '<html><head><title> Node Js title </title></head><body>'
+//         );
+//         res.write('<p>Hello World</p>');
+//         res.write('</body></html>');
+//     }
+//     res.end();
+// });
+// const port = 3000;
+// const host = 'localhost';
+// server.listen(port, host, () => {
+//     console.log(`Server is listening on ${host}:${port}`);
+// });
 const http = require('http');
+const path = require('path');
+const fs = require('fs');
+
 const server = http.createServer( (req, res) => {
     res.setHeader('Content-type', 'text/html');
-    if (req.url === '/login'){
-        res.write(
-            '<html><head><title> Node Js title </title></head><body>'
-        );
-        res.write('<p>Hello Login</p>');
-        res.write('</body></html>');
-    }
-    else{
-        res.write(
-            '<html><head><title> Node Js title </title></head><body>'
-        );
-        res.write('<p>Hello World</p>');
-        res.write('</body></html>');
-    }
-    res.end();
+    const data = fs.readFileSync(path.join(__dirname, 'index.html'));
+    res.end(data);
 });
 const port = 3000;
 const host = 'localhost';
 server.listen(port, host, () => {
     console.log(`Server is listening on ${host}:${port}`);
 });
+
