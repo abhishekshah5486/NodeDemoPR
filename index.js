@@ -14,20 +14,29 @@ const fs = require('fs');
 // })
 
 // Create a directory using fs
-fs.mkdir('dir1', (err) => {
-    if (err) console.log(err);
-    else console.log("dir formed.");
-});
+// fs.mkdir('dir1', (err) => {
+//     if (err) console.log(err);
+//     else console.log("dir formed.");
+// });
 
 // Remove a directory using fs
-fs.rmdir('dir1', (err) => {
-    if (err) console.log(err);
-    else console.log('dir1 removed.')
-})
+// fs.rmdir('dir1', (err) => {
+//     if (err) console.log(err);
+//     else console.log('dir1 removed.')
+// })
 
 // Rename file.txt to new-file.txt
-fs.rename('file.txt', 'new-file.txt', (err) => {
-    if (err) console.log(err);
-    else console.log("File has been renamed.");
-})
+// fs.rename('file.txt', 'new-file.txt', (err) => {
+//     if (err) console.log(err);
+//     else console.log("File has been renamed.");
+// })
+
+// Get the path of a file
+
+const p = "/Users/abhishekshah/DemoNodeProject/file.txt";
+const path = require('path');
+const dirName = path.dirname(p);
+const ext = path.extname(p);
+console.log(dirName);
+console.log(ext);
 
