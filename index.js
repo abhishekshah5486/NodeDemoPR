@@ -45,9 +45,14 @@ const fs = require('fs');
 // get the path of file
 // get the path of dir
 // copy the file from source to destination
-const sourceFile = "/Users/abhishekshah/DemoNodeProject/new-file.txt";
-const destination  = "/Users/abhishekshah/DemoNodeProject/file.txt";
-fs.copyFile(sourceFile, destination, (err) => {
+const sourceFile = "/Users/abhishekshah/DemoNodeProject/file.txt";
+const destination  = "/Users/abhishekshah/DemoNodeProject/dir1";
+const destFile = path.join(destination, 'file.txt');
+// fs.copyFile(sourceFile, destination, (err) => {
+//     if (err) console.log(err);
+//     else console.log('File has been copied');
+// })
+fs.copyFile(sourceFile, destFile, (err) => {
     if (err) console.log(err);
     else console.log('File has been copied');
 })
