@@ -47,15 +47,32 @@ const fs = require('fs');
 // copy the file from source to destination
 // const sourceFile = "/Users/abhishekshah/DemoNodeProject/file.txt";
 // const destination  = "/Users/abhishekshah/DemoNodeProject/dir1";
-const sourceFile = path.join(__dirname, 'file.txt');
-const dest = path.join(__dirname, 'dir1');
-const destFile = path.join(dest, 'copied-file.txt');
+// const sourceFile = path.join(__dirname, 'file.txt');
+// const dest = path.join(__dirname, 'dir1');
+// const destFile = path.join(dest, 'copied-file.txt');
 // fs.copyFile(sourceFile, destination, (err) => {
 //     if (err) console.log(err);
 //     else console.log('File has been copied');
 // })
-fs.copyFile(sourceFile, destFile, (err) => {
-    if (err) console.log(err);
-    else console.log('File has been copied');
-})
+// fs.copyFile(sourceFile, destFile, (err) => {
+//     if (err) console.log(err);
+//     else console.log('File has been copied');
+// })
+// fs.unlinkSync('file.txt');
 
+// Creating a server
+const http = require('http');
+const server = http.createServer( (req, res) => {
+    res.setHeader('Content-type', 'text/html');
+    res.write(
+        '<html><head><title> Node Js title </title></head><body>'
+    );
+    res.write('<p>Hello World !</p>');
+    res.write('</body></html>');
+    res.end();
+});
+const port = 3000;
+const host = 'localhost';
+server.listen(port, host, () => {
+    console.log(`Server is listening on ${host}:${port}`);
+});
