@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs');
 
 // const data = fs.readFileSync('file.txt');
 // console.log(data);
@@ -33,10 +33,21 @@ const fs = require('fs');
 
 // Get the path of a file
 
-const p = "/Users/abhishekshah/DemoNodeProject/file.txt";
+// const p = "/Users/abhishekshah/DemoNodeProject/file.txt";
 const path = require('path');
-const dirName = path.dirname(p);
-const ext = path.extname(p);
-console.log(dirName);
-console.log(ext);
+const fs = require('fs');
+// const dirName = path.dirname(p);
+// const ext = path.extname(p);
+// console.log(dirName);
+// console.log(ext);
 
+// Moving a file from one path to another path
+// get the path of file
+// get the path of dir
+// copy the file from source to destination
+const sourceFile = "/Users/abhishekshah/DemoNodeProject/new-file.txt";
+const destination  = "/Users/abhishekshah/DemoNodeProject/file.txt";
+fs.copyFile(sourceFile, destination, (err) => {
+    if (err) console.log(err);
+    else console.log('File has been copied');
+})
