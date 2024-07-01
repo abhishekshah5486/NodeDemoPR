@@ -14,10 +14,10 @@ const fs = require('fs');
 // })
 
 // Create a directory using fs
-// fs.mkdir('dir1', (err) => {
-//     if (err) console.log(err);
-//     else console.log("dir formed.");
-// });
+fs.mkdir('dir1', (err) => {
+    if (err) console.log(err);
+    else console.log("dir formed.");
+});
 
 // Remove a directory using fs
 fs.rmdir('dir1', (err) => {
@@ -26,4 +26,8 @@ fs.rmdir('dir1', (err) => {
 })
 
 // Rename file.txt to new-file.txt
+fs.rename('file.txt', 'new-file.txt', (err) => {
+    if (err) console.log(err);
+    else console.log("File has been renamed.");
+})
 
